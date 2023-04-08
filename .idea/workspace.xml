@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f00a85ff-5af5-4dc2-aaf1-1f5a6dda5cfc" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2N67EcsO0V0yCfK8rq7FO7g4sDg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/pedro/Downloads/big-data-mapreduce-hadoop3-student-master/src/tde_1/Easy/Exercise5",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/tde_1/Easy/Exercise5" />
+      <recent name="$PROJECT_DIR$/src/tde_1/Easy/Exercise2" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="tde_1.Easy" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.EntropyFASTA">
+    <configuration name="AverageTemperature" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="advanced.customwritable.AverageTemperature" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <option name="PROGRAM_PARAMETERS" value="in/forestfireinput.csv output/result" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="advanced.customwritable.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EntropyFASTA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="advanced.entropy.EntropyFASTA" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <option name="PROGRAM_PARAMETERS" value="in/JY157487.1.fasta output/result" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="advanced.entropy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransactionsBrazil" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Easy.TransactionsBrazil.TransactionsBrazil" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/result" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tde_1.Easy.Exercise1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransactionsBrazil" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Easy.Exercise1.TransactionsBrazil" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/result" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tde_1.Easy.Exercise1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransactionsPerFlowAndYear (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Easy.Exercise2.TransactionsPerFlowAndYear" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tde_1.Easy.Exercise2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransactionsPerFlowAndYear" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Easy.Exercise2.TransactionsPerFlowAndYear" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/result" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tde_1.Easy.Exercise2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WordCount" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="basic.WordCount" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <option name="PROGRAM_PARAMETERS" value="in/bible.txt output/result" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.TransactionsPerFlowAndYear" />
+      <item itemvalue="Application.TransactionsBrazil" />
+      <item itemvalue="Application.EntropyFASTA" />
+      <item itemvalue="Application.TransactionsPerFlowAndYear (1)" />
+      <item itemvalue="Application.AverageTemperature" />
+      <item itemvalue="Application.WordCount" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.EntropyFASTA" />
+        <item itemvalue="Application.TransactionsPerFlowAndYear (1)" />
+        <item itemvalue="Application.TransactionsBrazil" />
+        <item itemvalue="Application.WordCount" />
+        <item itemvalue="Application.AverageTemperature" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f00a85ff-5af5-4dc2-aaf1-1f5a6dda5cfc" name="Changes" comment="" />
+      <created>1678972568126</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678972568126</updated>
+    </task>
+    <servers />
+  </component>
+</project>
