@@ -9,10 +9,13 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 import org.apache.log4j.BasicConfigurator;
+import services.DirectoryManage;
+
 import java.io.IOException;
 
 public class AverageTemperature {
     public static void main(String args[]) throws IOException, ClassNotFoundException, InterruptedException {
+        DirectoryManage.deleteResultFold();
         BasicConfigurator.configure();
         Configuration c = new Configuration();
         String[] files = new GenericOptionsParser(c, args).getRemainingArgs();

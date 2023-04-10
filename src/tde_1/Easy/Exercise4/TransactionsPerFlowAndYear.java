@@ -1,9 +1,7 @@
-package tde_1.Easy.Exercise2;
+package tde_1.Easy.Exercise4;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.FloatWritable;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -16,7 +14,6 @@ import org.apache.hadoop.util.GenericOptionsParser;
 import org.apache.log4j.BasicConfigurator;
 import services.DirectoryManage;
 
-import java.io.File;
 import java.io.IOException;
 
 public class TransactionsPerFlowAndYear {

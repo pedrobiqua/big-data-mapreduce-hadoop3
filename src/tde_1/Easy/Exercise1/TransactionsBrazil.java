@@ -76,8 +76,6 @@ public class TransactionsBrazil {
                 IntWritable val = new IntWritable(1);
                 con.write(new Text(coluns[0]), val);
             }
-
-
         }
     }
 
