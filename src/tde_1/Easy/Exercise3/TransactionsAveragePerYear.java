@@ -20,7 +20,7 @@ import java.io.IOException;
 
 public class TransactionsAveragePerYear {
     public static void main(String args[]) throws IOException, ClassNotFoundException, InterruptedException {
-        // Para n찾o precisar ficar deletando o diret처rio em cada teste fiz essa pequena l처gica
+        // Para não precisar ficar deletando o diret처rio em cada teste fiz essa pequena l처gica
         File diretorio = new File("../big-data-mapreduce-hadoop3-student-master/output/result");
         if (diretorio.exists()) {
             FileUtils.deleteDirectory(diretorio);

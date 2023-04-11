@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f00a85ff-5af5-4dc2-aaf1-1f5a6dda5cfc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/TransactionsAveragePerYear.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/TransactionsAveragePerYearWritable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/result/.part-r-00000.crc" beforeDir="false" afterPath="$PROJECT_DIR$/output/result/.part-r-00000.crc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/result/part-r-00000" beforeDir="false" afterPath="$PROJECT_DIR$/output/result/part-r-00000" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/advanced/customwritable/AverageTemperature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/advanced/customwritable/AverageTemperature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise1/TransactionsBrazil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise1/TransactionsBrazil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise2/TransactionsPerFlowAndYear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise2/TransactionsPerFlowAndYear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/TransactionsAveragePerYear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/TransactionsAveragePerYear.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/MaxMinMeanTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/MaxMinMeanTransaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/MaxMinMeanTransactionWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/MaxMinMeanTransactionWritable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/MaxMinMeanTransactionWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/MaxMinMeanTransactionValueWritable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,16 +52,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/pedro/Downloads/big-data-mapreduce-hadoop3-student-master/src/tde_1/Easy/Exercise4",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/pedro/Downloads/big-data-mapreduce-hadoop3-student-master/src/tde_1/Easy/Exercise4&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/tde_1/Easy/Exercise4" />
@@ -77,7 +73,7 @@
       <recent name="tde_1.Easy" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TransactionsAveragePerYear">
+  <component name="RunManager" selected="Application.MaxMinMeanTransaction">
     <configuration name="AverageTemperature" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="advanced.customwritable.AverageTemperature" />
       <module name="big-data-mapreduce-hadoop3-student" />
@@ -165,6 +161,7 @@
     <list>
       <item itemvalue="Application.TransactionsAveragePerYear" />
       <item itemvalue="Application.TransactionsPerFlowAndYear" />
+      <item itemvalue="Application.TransactionsBrazil" />
       <item itemvalue="Application.AverageTemperature" />
       <item itemvalue="Application.MaxMinMeanTransaction" />
       <item itemvalue="Application.EntropyFASTA" />

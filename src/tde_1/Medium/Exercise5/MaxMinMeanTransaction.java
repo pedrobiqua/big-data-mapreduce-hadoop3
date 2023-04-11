@@ -36,18 +36,19 @@ public class MaxMinMeanTransaction {
         j.setCombinerClass(CombineForMapForTransactionsPerFlowAndYear.class);
         // Definir os tipos de saida
         // MAP
-        j.setMapOutputKeyClass(Text.class);
-        j.setMapOutputValueClass(MaxMinMeanTransactionWritable.class);
+        j.setMapOutputKeyClass(MaxMinMeanTransactionKeyWritable.class);
+        j.setMapOutputValueClass(MaxMinMeanTransactionValueWritable.class);
         // REDUCE
         j.setOutputKeyClass(Text.class);
-        j.setOutputValueClass(FloatWritable.class);
+        j.setOutputValueClass(Text.class);
         // Definir arquivos de entrada e de saida
         FileInputFormat.addInputPath(j, input);
         FileOutputFormat.setOutputPath(j, output);
         // rodar
         j.waitForCompletion(false);
     }
-    public static class MapForTransactionsPerFlowAndYear extends Mapper<LongWritable, Text, Text, MaxMinMeanTransactionWritable> {
+    public static class MapForTransactionsPerFlowAndYear extends Mapper<LongWritable, Text,
+            MaxMinMeanTransactionKeyWritable, MaxMinMeanTransactionValueWritable> {
         public void map(LongWritable key, Text value, Context con) throws IOException, InterruptedException {
 
             String linha = value.toString();
@@ -59,58 +60,66 @@ public class MaxMinMeanTransaction {
                 String unityType = colunas[7];
                 String year = colunas[1];
                 String price = colunas[5];
-                float quantidade = Float.parseFloat(colunas[8]);
                 float priceFloat = Float.parseFloat(price);
-                float priceByUnit = priceFloat/quantidade;
-                String chave = unityType + " " + year;
-                // con.write(new Text("Max"), new MaxMinMeanTransactionWritable(priceFloat, 1));
-                // con.write(new Text("Min"), new MaxMinMeanTransactionWritable(priceFloat, 1));
-                con.write(new Text(chave), new MaxMinMeanTransactionWritable(priceByUnit, 1));
+                // float quantidade = Float.parseFloat(colunas[8]);
+                // float priceByUnit = priceFloat/quantidade;
+                con.write(new MaxMinMeanTransactionKeyWritable(unityType, year), new MaxMinMeanTransactionValueWritable(priceFloat, 1));
             }
         }
     }
-    public static class CombineForMapForTransactionsPerFlowAndYear extends Reducer<Text, MaxMinMeanTransactionWritable, Text, MaxMinMeanTransactionWritable>{
-        public void reduce(Text key, Iterable<MaxMinMeanTransactionWritable> values, Context con) throws IOException, InterruptedException {
-            float temp = 0.0f;
-            if (key.toString().equals("Max")){
-                for (MaxMinMeanTransactionWritable o :
-                        values) {
-                    float price = o.getPrice();
-                    if (temp < price) temp = price;
-                }
-
-                con.write(key, new MaxMinMeanTransactionWritable(temp, 1));
-            }
-            else
-            {
-                float somaPrice = 0;
-                int somaQtds = 0;
-                for(MaxMinMeanTransactionWritable o : values){
-                    somaPrice += o.getPrice();
-                    somaQtds += o.getQtd();
-                }
-                // passando para o reduce valores pre-somados
-                con.write(key, new MaxMinMeanTransactionWritable(somaPrice, somaQtds));
-            }
-        }
-    }
-    public static class ReduceForCombineForMapForTransactionsPerFlowAndYear extends Reducer<Text, MaxMinMeanTransactionWritable, Text, FloatWritable> {
-        public void reduce(Text key, Iterable<MaxMinMeanTransactionWritable> values, Context con) throws IOException, InterruptedException {
-
-            // logica do reduce:
-            // recebe diferentes objetos compostos (temperatura, qtd)
-            // somar as temperaturas e somar as qtds
-            float somaTemps = 0;
+    public static class CombineForMapForTransactionsPerFlowAndYear extends Reducer<MaxMinMeanTransactionKeyWritable, MaxMinMeanTransactionValueWritable,
+            MaxMinMeanTransactionKeyWritable, MaxMinMeanTransactionValueWritable>{
+        public void reduce(MaxMinMeanTransactionKeyWritable key, Iterable<MaxMinMeanTransactionValueWritable> values, Context con)
+                throws IOException, InterruptedException {
+            float max = 0.0f;
+            float min = 0.0f;
+            float somaPrice = 0;
             int somaQtds = 0;
-            for (MaxMinMeanTransactionWritable o : values){
-                somaTemps += o.getPrice();
+            for(MaxMinMeanTransactionValueWritable o : values){
+                somaPrice += o.getPrice();
                 somaQtds += o.getQtd();
+                // Procura o valor maximo
+                if (o.getPrice() > max){
+                    max = o.getPrice();
+                }
+
+                // Procura o valor minimo
+                if ((min == 0.0f) || o.getPrice() < min){
+                    min = o.getPrice();
+                }
+            }
+            // passando para o reduce valores pre-somados
+            con.write(key, new MaxMinMeanTransactionValueWritable(somaPrice, somaQtds, max, min));
+        }
+    }
+    public static class ReduceForCombineForMapForTransactionsPerFlowAndYear extends Reducer<MaxMinMeanTransactionKeyWritable, MaxMinMeanTransactionValueWritable,
+            Text, Text> {
+        public void reduce(MaxMinMeanTransactionKeyWritable key, Iterable<MaxMinMeanTransactionValueWritable> values, Context con)
+                throws IOException, InterruptedException {
+
+            float max = 0.0f;
+            float min = 0.0f;
+            float somaCommValues = 0;
+            int somaQtds = 0;
+            for (MaxMinMeanTransactionValueWritable o : values){
+                somaCommValues += o.getPrice();
+                somaQtds += o.getQtd();
+
+                // Procura o valor maximo
+                if (o.getMax() > max){
+                    max = o.getMax();
+                }
+
+                // Procura o valor minimo
+                if ((min == 0.0f) || o.getMin() < min){
+                    min = o.getMin();
+                }
             }
             // calcular a media
-
-            float media = somaTemps / somaQtds;
+            float media = somaCommValues / somaQtds;
+            
             // salvando o resultado
-            con.write(key, new FloatWritable(media));
+            con.write(new Text(key.getUnityType() + " " + key.getYear()), new Text(media + " " + max + " " + min));
         }
     }
 }
