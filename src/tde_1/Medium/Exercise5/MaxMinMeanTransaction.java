@@ -57,9 +57,9 @@ public class MaxMinMeanTransaction {
 
             // Se nãp for a primeira linha
             if (!keyString.equals("0")){
-                String unityType = colunas[7];
-                String year = colunas[1];
-                String price = colunas[5];
+                String unityType = colunas[7].trim();
+                String year = colunas[1].trim();
+                String price = colunas[5].trim();
                 float priceFloat = Float.parseFloat(price);
                 // float quantidade = Float.parseFloat(colunas[8]);
                 // float priceByUnit = priceFloat/quantidade;
