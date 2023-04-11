@@ -6,15 +6,15 @@ Além do HDFS e do MapReduce, o Hadoop é composto por uma variedade de outras f
 O Hadoop é amplamente utilizado em organizações de todos os tamanhos e setores, desde startups até grandes empresas e governos. Ele permite que as organizações processem grandes volumes de dados de maneira eficiente e escalável, oferecendo insights valiosos e permitindo que tomem decisões mais informadas e precisas.<br><br>
 
 ## Estudantes
-Pedro Bianchini de Quadros: 
+Pedro Bianchini de Quadros
 ```
 https://github.com/pedrobiqua
 ```
-Thiago Krugel
+Thiago Krügel
 ```
 https://github.com/thiagokrugel
 ```
-Gabriel Antonio 
+Gabriel Antonio Gomes de Farias
 ```
 https://github.com/gabz11
 ```
