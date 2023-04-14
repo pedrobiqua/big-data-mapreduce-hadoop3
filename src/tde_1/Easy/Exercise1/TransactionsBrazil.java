@@ -16,14 +16,14 @@ import org.apache.log4j.BasicConfigurator;
 import java.io.*;
 import java.io.IOException;
 
-
 public class TransactionsBrazil {
 
     public static void main(String[] args) throws Exception {
         // /home/pedro/Downloads/big-data-mapreduce-hadoop3-student-master/output/result
-        // Para não precisar ficar deletando o diretório em cada teste fiz essa pequena lógica
+        // Para não precisar ficar deletando o diretório em cada teste fiz essa pequena
+        // lógica
         File diretorio = new File("../big-data-mapreduce-hadoop3-student-master/output/result");
-        if(diretorio.exists()){
+        if (diretorio.exists()) {
             FileUtils.deleteDirectory(diretorio);
         }
 
@@ -32,10 +32,10 @@ public class TransactionsBrazil {
         Configuration c = new Configuration();
         String[] files = new GenericOptionsParser(c, args).getRemainingArgs();
         // arquivo de entrada
-        Path input = new Path(files[0]);
+        Path input = new Path("in/transactions_amostra.csv");
 
         // arquivo de saida
-        Path output = new Path(files[1]);
+        Path output = new Path("output/result");
 
         // criacao do job e seu nome
         Job j = new Job(c, "brazilTransactions");
@@ -72,7 +72,7 @@ public class TransactionsBrazil {
             String coluns[] = linha.split(";");
 
             // O if serve para não pegar a primeira linha
-            if (!(coluns[0].equals("country_or_area"))){
+            if (!(coluns[0].equals("country_or_area"))) {
                 IntWritable val = new IntWritable(1);
                 con.write(new Text(coluns[0]), val);
             }
@@ -84,17 +84,17 @@ public class TransactionsBrazil {
         public void reduce(Text key, Iterable<IntWritable> values, Context con)
                 throws IOException, InterruptedException {
 
-                String country = key.toString();
-                if (country.equals("Brazil")) {
-                    // Criando variavel de contagem
-                    int contagem = 0;
-                    // Varendo o values
-                    for (IntWritable v: values) {
-                        contagem+= v.get();
-                    }
-                    // salvando os resultados em disco
-                    con.write(key, new IntWritable(contagem));
+            String country = key.toString();
+            if (country.equals("Brazil")) {
+                // Criando variavel de contagem
+                int contagem = 0;
+                // Varendo o values
+                for (IntWritable v : values) {
+                    contagem += v.get();
                 }
+                // salvando os resultados em disco
+                con.write(key, new IntWritable(contagem));
+            }
         }
     }
 

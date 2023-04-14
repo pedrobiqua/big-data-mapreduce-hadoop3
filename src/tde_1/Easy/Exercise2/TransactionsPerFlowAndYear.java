@@ -27,9 +27,9 @@ public class TransactionsPerFlowAndYear {
         Configuration c = new Configuration();
         String[] files = new GenericOptionsParser(c, args).getRemainingArgs();
         // arquivo de entrada
-        Path input = new Path(files[0]);
+        Path input = new Path("in/transactions_amostra.csv");
         // arquivo de saida
-        Path output = new Path(files[1]);
+        Path output = new Path("output/result");
         // criacao do job e seu nome
         Job j = new Job(c, "transactionsPerFlowAndYear");
         // Registrar as classes
@@ -50,7 +50,9 @@ public class TransactionsPerFlowAndYear {
         // rodar
         j.waitForCompletion(false);
     }
-    public static class MapForTransactionsPerFlowAndYear extends Mapper<LongWritable, Text, TransactionsFlowAndYearTempWritable, IntWritable> {
+
+    public static class MapForTransactionsPerFlowAndYear
+            extends Mapper<LongWritable, Text, TransactionsFlowAndYearTempWritable, IntWritable> {
         public void map(LongWritable key, Text value, Context con) throws IOException, InterruptedException {
 
             String linha = value.toString();
@@ -58,7 +60,7 @@ public class TransactionsPerFlowAndYear {
 
             String keyString = key.toString();
             // Se nãp for a primeira linha
-            if (!keyString.equals("0")){
+            if (!keyString.equals("0")) {
                 String flow = colunas[4];
                 String year = colunas[1];
                 int yearInt = Integer.parseInt(year);
@@ -66,23 +68,29 @@ public class TransactionsPerFlowAndYear {
             }
         }
     }
-    public static class CombineForMapForTransactionsPerFlowAndYear extends Reducer<TransactionsFlowAndYearTempWritable, IntWritable, TransactionsFlowAndYearTempWritable, IntWritable>{
-        public void reduce(TransactionsFlowAndYearTempWritable key, Iterable<IntWritable> values, Context con) throws IOException, InterruptedException {
+
+    public static class CombineForMapForTransactionsPerFlowAndYear extends
+            Reducer<TransactionsFlowAndYearTempWritable, IntWritable, TransactionsFlowAndYearTempWritable, IntWritable> {
+        public void reduce(TransactionsFlowAndYearTempWritable key, Iterable<IntWritable> values, Context con)
+                throws IOException, InterruptedException {
             int contagem = 0;
             // Varendo o values
-            for (IntWritable v: values) {
-                contagem+= v.get();
+            for (IntWritable v : values) {
+                contagem += v.get();
             }
             // salvando os resultados em disco
             con.write(key, new IntWritable(contagem));
         }
     }
-    public static class ReduceForCombineForMapForTransactionsPerFlowAndYear extends Reducer<TransactionsFlowAndYearTempWritable, IntWritable, Text, IntWritable> {
-        public void reduce(TransactionsFlowAndYearTempWritable key, Iterable<IntWritable> values, Context con) throws IOException, InterruptedException {
+
+    public static class ReduceForCombineForMapForTransactionsPerFlowAndYear
+            extends Reducer<TransactionsFlowAndYearTempWritable, IntWritable, Text, IntWritable> {
+        public void reduce(TransactionsFlowAndYearTempWritable key, Iterable<IntWritable> values, Context con)
+                throws IOException, InterruptedException {
             int contagem = 0;
             // Varendo o values
-            for (IntWritable v: values) {
-                contagem+= v.get();
+            for (IntWritable v : values) {
+                contagem += v.get();
             }
             String resultFlowKey = key.getFlow();
             int resultYearKey = key.getQtd();
