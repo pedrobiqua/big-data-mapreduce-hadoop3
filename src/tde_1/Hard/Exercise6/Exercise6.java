@@ -27,7 +27,7 @@ public class Exercise6 {
         // arquivo de saida
         Path output = new Path(files[1]);
         // criacao do job e seu nome
-        Job j = new Job(c, "maxMinMean");
+        Job j = new Job(c, "countryLargest");
         // Registrar as classes
         j.setJarByClass(Exercise6.class);
         j.setMapperClass(MapForTransactionsPerFlowAndYear.class);
@@ -53,42 +53,13 @@ public class Exercise6 {
             String linha = value.toString();
             String colunas[] = linha.split(";");
             String keyString = key.toString();
-
-            // Se nãp for a primeira linha
-            if (!keyString.equals("0")){
-                String unityType = colunas[7].trim();
-                String year = colunas[1].trim();
-                String price = colunas[5].trim();
-                float priceFloat = Float.parseFloat(price);
-                // float quantidade = Float.parseFloat(colunas[8]);
-                // float priceByUnit = priceFloat/quantidade;
-                con.write(new Exercise6KeyWritable(unityType, year), new Exercise6ValueWritable(priceFloat, 1));
-            }
         }
     }
     public static class CombineForMapForTransactionsPerFlowAndYear extends Reducer<Exercise6KeyWritable, Exercise6ValueWritable,
             Exercise6KeyWritable, Exercise6ValueWritable>{
         public void reduce(Exercise6KeyWritable key, Iterable<Exercise6ValueWritable> values, Context con)
                 throws IOException, InterruptedException {
-            float max = 0.0f;
-            float min = 0.0f;
-            float somaPrice = 0;
-            int somaQtds = 0;
-            for(Exercise6ValueWritable o : values){
-                somaPrice += o.getPrice();
-                somaQtds += o.getQtd();
-                // Procura o valor maximo
-                if (o.getPrice() > max){
-                    max = o.getPrice();
-                }
 
-                // Procura o valor minimo
-                if ((min == 0.0f) || o.getPrice() < min){
-                    min = o.getPrice();
-                }
-            }
-            // passando para o reduce valores pre-somados
-            con.write(key, new Exercise6ValueWritable(somaPrice, somaQtds, max, min));
         }
     }
     public static class ReduceForCombineForMapForTransactionsPerFlowAndYear extends Reducer<Exercise6KeyWritable, Exercise6ValueWritable,
@@ -96,29 +67,6 @@ public class Exercise6 {
         public void reduce(Exercise6KeyWritable key, Iterable<Exercise6ValueWritable> values, Context con)
                 throws IOException, InterruptedException {
 
-            float max = 0.0f;
-            float min = 0.0f;
-            float somaCommValues = 0;
-            int somaQtds = 0;
-            for (Exercise6ValueWritable o : values){
-                somaCommValues += o.getPrice();
-                somaQtds += o.getQtd();
-
-                // Procura o valor maximo
-                if (o.getMax() > max){
-                    max = o.getMax();
-                }
-
-                // Procura o valor minimo
-                if ((min == 0.0f) || o.getMin() < min){
-                    min = o.getMin();
-                }
-            }
-            // calcular a media
-            float media = somaCommValues / somaQtds;
-            
-            // salvando o resultado
-            con.write(new Text(key.getUnityType() + " " + key.getYear()), new Text(media + " " + max + " " + min));
         }
     }
 }

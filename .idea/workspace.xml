@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f00a85ff-5af5-4dc2-aaf1-1f5a6dda5cfc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6KeyWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6KeyWritable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6ValueWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6ValueWritable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +54,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/pedro/Downloads/big-data-mapreduce-hadoop3-student-master/src/tde_1/Easy/Exercise4&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/pedro/Downloads/big-data-mapreduce-hadoop3-student-master/src/tde_1/Hard/Exercise7&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
@@ -60,10 +62,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/tde_1/Hard/Exercise7" />
+      <recent name="$PROJECT_DIR$/src/tde_1/Hard/Exercise6" />
       <recent name="$PROJECT_DIR$/src/tde_1/Easy/Exercise4" />
       <recent name="$PROJECT_DIR$/src/tde_1/Easy/Exercise3" />
       <recent name="$PROJECT_DIR$/src/tde_1/Easy/Exercise5" />
-      <recent name="$PROJECT_DIR$/src/tde_1/Easy/Exercise2" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="tde_1.Easy" />
