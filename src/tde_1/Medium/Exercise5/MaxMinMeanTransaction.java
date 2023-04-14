@@ -55,7 +55,7 @@ public class MaxMinMeanTransaction {
             String colunas[] = linha.split(";");
             String keyString = key.toString();
 
-            // Se nãp for a primeira linha
+            // Se não for a primeira linha
             if (!keyString.equals("0")){
                 String unityType = colunas[7].trim();
                 String year = colunas[1].trim();
