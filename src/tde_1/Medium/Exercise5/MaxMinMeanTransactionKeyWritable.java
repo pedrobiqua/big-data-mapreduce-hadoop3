@@ -10,7 +10,6 @@ public class MaxMinMeanTransactionKeyWritable implements WritableComparable<MaxM
 
     private String unityType;
     private String year;
-    private float idadePavao;
 
     public MaxMinMeanTransactionKeyWritable() {
     }
