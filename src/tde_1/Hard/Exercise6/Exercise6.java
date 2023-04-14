@@ -26,9 +26,11 @@ public class Exercise6 {
         Configuration c = new Configuration();
         String[] files = new GenericOptionsParser(c, args).getRemainingArgs();
         // arquivo de entrada
-        Path input = new Path(files[0]);
+        Path input = new Path("in/transactions_amostra.csv");
+        // intermediate
+        Path intermediate = new Path("./output/intermediate.tmp");
         // arquivo de saida
-        Path output = new Path(files[1]);
+        Path output = new Path("output/result");
         // criacao do job e seu nome
         Job j = new Job(c, "countryLargest");
         // Registrar as classes
@@ -48,16 +50,29 @@ public class Exercise6 {
         FileOutputFormat.setOutputPath(j, output);
         // rodar
         j.waitForCompletion(false);
+
+        Job j2 = new Job(c, "entropia");
+        j2.setJarByClass(EntropyFASTA.class);
+        j2.setMapperClass(MapEtapaB.class);
+        j2.setReducerClass(ReduceEtapaB.class);
+        j2.setMapOutputKeyClass(Text.class);
+        j2.setMapOutputValueClass(BaseQtdWritable.class);
+        j2.setOutputKeyClass(Text.class);
+        j2.setOutputValueClass(DoubleWritable.class);
+        FileInputFormat.addInputPath(j2, intermediate);
+        FileOutputFormat.setOutputPath(j2, output);
+        j2.waitForCompletion(false);
     }
-    public static class MapForTransactionsPerFlowAndYear extends Mapper<LongWritable, Text,
-            Text, Exercise6ValueWritable> {
+
+    public static class MapForTransactionsPerFlowAndYear
+            extends Mapper<LongWritable, Text, Text, Exercise6ValueWritable> {
         public void map(LongWritable key, Text value, Context con) throws IOException, InterruptedException {
 
             String linha = value.toString();
             String colunas[] = linha.split(";");
             String keyLine = key.toString();
 
-            if (!keyLine.equals("0")){
+            if (!keyLine.equals("0")) {
                 // Obtendo os valores do csv/base de dados
                 String country = colunas[0];
                 String flow = colunas[4];
@@ -71,18 +86,19 @@ public class Exercise6 {
             }
         }
     }
-    public static class CombineForMapForTransactionsPerFlowAndYear extends Reducer<Text, Exercise6ValueWritable,
-            Text, Exercise6ValueWritable>{
+
+    public static class CombineForMapForTransactionsPerFlowAndYear
+            extends Reducer<Text, Exercise6ValueWritable, Text, Exercise6ValueWritable> {
         public void reduce(Text key, Iterable<Exercise6ValueWritable> values, Context con)
                 throws IOException, InterruptedException {
             float max = 0.0f;
             float somaPrice = 0;
             int somaQtds = 0;
-            for(Exercise6ValueWritable o : values){
+            for (Exercise6ValueWritable o : values) {
                 somaPrice += o.getPriceComm();
                 somaQtds += o.getQtd();
                 // Procura o valor maximo
-                if (o.getPriceComm() > max){
+                if (o.getPriceComm() > max) {
                     max = o.getPriceComm();
                 }
             }
@@ -90,8 +106,9 @@ public class Exercise6 {
             con.write(key, new Exercise6ValueWritable(somaPrice, somaQtds, max));
         }
     }
-    public static class ReduceForCombineForMapForTransactionsPerFlowAndYear extends Reducer<Text, Exercise6ValueWritable,
-            Text, FloatWritable> {
+
+    public static class ReduceForCombineForMapForTransactionsPerFlowAndYear
+            extends Reducer<Text, Exercise6ValueWritable, Text, FloatWritable> {
         public void reduce(Text key, Iterable<Exercise6ValueWritable> values, Context con)
                 throws IOException, InterruptedException {
 
@@ -101,17 +118,62 @@ public class Exercise6 {
             int somaQtds = 0;
             float avarage = 0.0f;
 
-            for(Exercise6ValueWritable o : values){
+            for (Exercise6ValueWritable o : values) {
                 somaPrice += o.getPriceComm();
                 somaQtds += o.getQtd();
                 // Procura o valor maximo
-                if (o.getPriceComm() > max){
+                if (o.getPriceComm() > max) {
                     max = o.getPriceComm();
                     country = key.toString();
                 }
             }
             avarage = somaPrice / somaQtds;
             con.write(new Text(country), new FloatWritable(avarage));
+        }
+    }
+
+    public static class MapEtapaB extends Mapper<LongWritable, Text, Text, BaseQtdWritable> {
+        public void map(LongWritable key, Text value, Context con)
+                throws IOException, InterruptedException {
+            // Pegando uma linha
+            String linha = value.toString();
+            String campos[] = linha.split("\t");
+            String country = campos[0];
+            float average = Float.parseFloat(campos[1]);
+            
+            for(Exercise6ValueWritable v:values){
+                
+            }
+
+            Text chaveGenerica = new Text("maximo");
+
+            con.write(chaveGenerica, );
+
+        }
+    }
+
+    public static class ReduceEtapaB extends Reducer<Text, BaseQtdWritable, Text, DoubleWritable> {
+        public void reduce(Text key, Iterable<BaseQtdWritable> values, Context con)
+                throws IOException, InterruptedException {
+
+            double qtdTotal = 0.0;
+            ArrayList<BaseQtdWritable> listagem = new ArrayList<>();
+            for (BaseQtdWritable v : values) {
+                if (v.getCaracter().equals("total")) {
+                    qtdTotal = v.getContagem();
+                } else {
+                    listagem.add(
+                            new BaseQtdWritable(v.getCaracter(), v.getContagem()));
+                }
+            }
+
+            // percorrer os caracteres e calcular as probabilidades e as entropias
+            for (BaseQtdWritable v : listagem) {
+                double prob = v.getContagem() / qtdTotal;
+                double entropia = -prob * (Math.log(prob) / Math.log(2.0));
+                con.write(new Text(v.getCaracter()), new DoubleWritable(entropia));
+            }
+
         }
     }
 }
