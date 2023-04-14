@@ -2,6 +2,7 @@ package tde_1.Hard.Exercise6;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.FloatWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -12,12 +13,14 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 import org.apache.log4j.BasicConfigurator;
 import services.DirectoryManage;
+import tde_1.Medium.Exercise5.MaxMinMeanTransactionValueWritable;
 
 import java.io.IOException;
 
 public class Exercise6 {
     public static void main(String args[]) throws IOException, ClassNotFoundException, InterruptedException {
 
+        // TODO: Fazer o segundo MapReduce Lembre: Usar o FASTA como exemplo.
         DirectoryManage.deleteResultFold();
         BasicConfigurator.configure();
         Configuration c = new Configuration();
@@ -35,11 +38,11 @@ public class Exercise6 {
         j.setCombinerClass(CombineForMapForTransactionsPerFlowAndYear.class);
         // Definir os tipos de saida
         // MAP
-        j.setMapOutputKeyClass(Exercise6KeyWritable.class);
+        j.setMapOutputKeyClass(Text.class);
         j.setMapOutputValueClass(Exercise6ValueWritable.class);
         // REDUCE
         j.setOutputKeyClass(Text.class);
-        j.setOutputValueClass(Text.class);
+        j.setOutputValueClass(Exercise6ValueWritable.class);
         // Definir arquivos de entrada e de saida
         FileInputFormat.addInputPath(j, input);
         FileOutputFormat.setOutputPath(j, output);
@@ -47,26 +50,68 @@ public class Exercise6 {
         j.waitForCompletion(false);
     }
     public static class MapForTransactionsPerFlowAndYear extends Mapper<LongWritable, Text,
-            Exercise6KeyWritable, Exercise6ValueWritable> {
+            Text, Exercise6ValueWritable> {
         public void map(LongWritable key, Text value, Context con) throws IOException, InterruptedException {
 
             String linha = value.toString();
             String colunas[] = linha.split(";");
-            String keyString = key.toString();
+            String keyLine = key.toString();
+
+            if (!keyLine.equals("0")){
+                // Obtendo os valores do csv/base de dados
+                String country = colunas[0];
+                String flow = colunas[4];
+                float priceComm = Float.parseFloat(colunas[5]);
+
+                // Fazendo o map
+                if (flow.equals("Export")) {
+                    int qtd = 1;
+                    con.write(new Text(country), new Exercise6ValueWritable(priceComm, qtd));
+                }
+            }
         }
     }
-    public static class CombineForMapForTransactionsPerFlowAndYear extends Reducer<Exercise6KeyWritable, Exercise6ValueWritable,
-            Exercise6KeyWritable, Exercise6ValueWritable>{
-        public void reduce(Exercise6KeyWritable key, Iterable<Exercise6ValueWritable> values, Context con)
+    public static class CombineForMapForTransactionsPerFlowAndYear extends Reducer<Text, Exercise6ValueWritable,
+            Text, Exercise6ValueWritable>{
+        public void reduce(Text key, Iterable<Exercise6ValueWritable> values, Context con)
                 throws IOException, InterruptedException {
-
+            float max = 0.0f;
+            float somaPrice = 0;
+            int somaQtds = 0;
+            for(Exercise6ValueWritable o : values){
+                somaPrice += o.getPriceComm();
+                somaQtds += o.getQtd();
+                // Procura o valor maximo
+                if (o.getPriceComm() > max){
+                    max = o.getPriceComm();
+                }
+            }
+            // passando para o reduce valores pre-somados
+            con.write(key, new Exercise6ValueWritable(somaPrice, somaQtds, max));
         }
     }
-    public static class ReduceForCombineForMapForTransactionsPerFlowAndYear extends Reducer<Exercise6KeyWritable, Exercise6ValueWritable,
-            Text, Text> {
-        public void reduce(Exercise6KeyWritable key, Iterable<Exercise6ValueWritable> values, Context con)
+    public static class ReduceForCombineForMapForTransactionsPerFlowAndYear extends Reducer<Text, Exercise6ValueWritable,
+            Text, FloatWritable> {
+        public void reduce(Text key, Iterable<Exercise6ValueWritable> values, Context con)
                 throws IOException, InterruptedException {
 
+            String country = "";
+            float max = 0.0f;
+            float somaPrice = 0.0f;
+            int somaQtds = 0;
+            float avarage = 0.0f;
+
+            for(Exercise6ValueWritable o : values){
+                somaPrice += o.getPriceComm();
+                somaQtds += o.getQtd();
+                // Procura o valor maximo
+                if (o.getPriceComm() > max){
+                    max = o.getPriceComm();
+                    country = key.toString();
+                }
+            }
+            avarage = somaPrice / somaQtds;
+            con.write(new Text(country), new FloatWritable(avarage));
         }
     }
 }
