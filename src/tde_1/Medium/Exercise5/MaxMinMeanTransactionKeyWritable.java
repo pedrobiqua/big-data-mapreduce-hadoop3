@@ -10,12 +10,15 @@ public class MaxMinMeanTransactionKeyWritable implements WritableComparable<MaxM
 
     private String unityType;
     private String year;
+    private float idadePavao;
 
-    public MaxMinMeanTransactionKeyWritable() {}
+    public MaxMinMeanTransactionKeyWritable() {
+    }
 
     public MaxMinMeanTransactionKeyWritable(String unityType, String year) {
         this.unityType = unityType;
         this.year = year;
+
     }
 
     public String getUnityType() {
@@ -33,7 +36,6 @@ public class MaxMinMeanTransactionKeyWritable implements WritableComparable<MaxM
     public void setYear(String year) {
         this.year = year;
     }
-
 
     @Override
     public int compareTo(MaxMinMeanTransactionKeyWritable o) {
@@ -54,8 +56,10 @@ public class MaxMinMeanTransactionKeyWritable implements WritableComparable<MaxM
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         MaxMinMeanTransactionKeyWritable that = (MaxMinMeanTransactionKeyWritable) o;
         return Objects.equals(unityType, that.unityType) && Objects.equals(year, that.year);
     }
