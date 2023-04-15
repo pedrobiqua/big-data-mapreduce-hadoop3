@@ -65,7 +65,8 @@ public class TransactionsAveragePerYear {
                 float commValue = Float.parseFloat(colunas[5]);
                 String year = colunas[1];
                 int yearInt = Integer.parseInt(year);
-                con.write(new Text(year), new TransactionsAveragePerYearWritable(commValue, yearInt));
+                con.write(new Text("media"), new TransactionsAveragePerYearWritable(commValue, 1));
+                con.write(new Text(year), new TransactionsAveragePerYearWritable(commValue, 1));
             }
         }
     }

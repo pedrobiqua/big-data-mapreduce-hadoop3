@@ -55,19 +55,14 @@ public class Exercise7KeyWritable implements WritableComparable<Exercise7KeyWrit
 
     @Override
     public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Exercise7KeyWritable)) {
-            return false;
-        }
-        Exercise7KeyWritable exercise7KeyWritable = (Exercise7KeyWritable) o;
-        return Objects.equals(flow, exercise7KeyWritable.flow)
-                && Objects.equals(commName, exercise7KeyWritable.commName);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Exercise7KeyWritable that = (Exercise7KeyWritable) o;
+        return Objects.equals(flow, that.flow) && Objects.equals(commName, that.commName);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(flow, commName);
     }
-
 }

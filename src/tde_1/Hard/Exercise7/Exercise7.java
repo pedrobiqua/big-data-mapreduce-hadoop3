@@ -15,11 +15,16 @@ import org.apache.log4j.BasicConfigurator;
 import services.DirectoryManage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Exercise7 {
     public static void main(String args[]) throws IOException, ClassNotFoundException, InterruptedException {
 
         DirectoryManage.deleteResultFold();
+        DirectoryManage.deleteIntermedieteFold();
         BasicConfigurator.configure();
         Configuration c = new Configuration();
         String[] files = new GenericOptionsParser(c, args).getRemainingArgs();
@@ -54,7 +59,7 @@ public class Exercise7 {
         j2.setMapperClass(MapEtapaB.class);
         j2.setReducerClass(ReduceEtapaB.class);
         j2.setMapOutputKeyClass(Text.class);
-        j2.setMapOutputValueClass(FloatWritable.class);
+        j2.setMapOutputValueClass(Exercise7ValueWritable.class);
         j2.setOutputKeyClass(Text.class);
         j2.setOutputValueClass(FloatWritable.class);
         FileInputFormat.addInputPath(j2, intermediate);
@@ -108,41 +113,43 @@ public class Exercise7 {
             for (FloatWritable o : values) {
                 somaQtds += o.get();
             }
-            con.write(new Text(key.getFlow() + "_" + key.getCommName() + "|"), new FloatWritable(somaQtds));
+            con.write(new Text(key.getFlow() + "\t" + key.getCommName()), new FloatWritable(somaQtds));
         }
     }
 
-    public static class MapEtapaB extends Mapper<LongWritable, Text, Text, FloatWritable> {
+    public static class MapEtapaB extends Mapper<LongWritable, Text, Text, Exercise7ValueWritable> {
         public void map(LongWritable key, Text value, Context con)
                 throws IOException, InterruptedException {
             // Pegando uma linha
             String linha = value.toString();
-            String campos[] = linha.split("|");
-            // String flow = campos[0].split("_")[0];
-            // String nameComm = campos[0].split("_")[1];
+            String campos[] = linha.split("\t");
+            String flow = campos[0];
+            String nameComm = campos[1];
 
-            float sum = Float.parseFloat(campos[1].trim());
+            float sum = Float.parseFloat(campos[2].trim());
 
-            Text chaveGenerica = new Text("maximo");
-            con.write(chaveGenerica, new FloatWritable(sum));
+            con.write(new Text(flow), new Exercise7ValueWritable(nameComm, flow, sum));
 
         }
     }
 
-    public static class ReduceEtapaB extends Reducer<Text, FloatWritable, Text, FloatWritable> {
-        public void reduce(Text key, Iterable<FloatWritable> values, Context con)
+    public static class ReduceEtapaB extends Reducer<Text, Exercise7ValueWritable, Text, FloatWritable> {
+        public void reduce(Text key, Iterable<Exercise7ValueWritable> values, Context con)
                 throws IOException, InterruptedException {
 
             float max = 0.0f;
-            String country = "";
-            for (FloatWritable o : values) {
-                // Procura o valor maximo
-                if (o.get() > max) {
-                    max = o.get();
+            String name = "";
+            String flow = "";
+            for (Exercise7ValueWritable o: values) {
+                if (o.getQtdValue() > max){
+                    max = o.getQtdValue();
+                    name = o.getNameComm();
+                    flow = o.getFlow();
                 }
             }
+
             // passando para o reduce valores pre-somados
-            con.write(key, new FloatWritable(max));
+            con.write(new Text(flow + " | " + name + " | "), new FloatWritable(max));
         }
     }
 }
