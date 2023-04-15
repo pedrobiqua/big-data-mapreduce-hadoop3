@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f00a85ff-5af5-4dc2-aaf1-1f5a6dda5cfc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6KeyWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6KeyWritable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6ValueWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6ValueWritable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +69,7 @@
       <recent name="tde_1.Easy" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MaxMinMeanTransaction">
+  <component name="RunManager" selected="Application.EntropyFASTA">
     <configuration name="AverageTemperature" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="advanced.customwritable.AverageTemperature" />
       <module name="big-data-mapreduce-hadoop3-student" />
@@ -94,6 +91,20 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="advanced.entropy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Exercise6" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Hard.Exercise6.Exercise6" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/result" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tde_1.Hard.Exercise6.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -157,9 +168,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="tde_1.Easy.Exercise4.TransactionsPerFlowAndYear" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Easy.Exercise4.TransactionsPerFlowAndYear" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tde_1.Easy.Exercise4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.Exercise6" />
       <item itemvalue="Application.TransactionsAveragePerYear" />
       <item itemvalue="Application.TransactionsPerFlowAndYear" />
+      <item itemvalue="Application.tde_1.Easy.Exercise4.TransactionsPerFlowAndYear" />
       <item itemvalue="Application.TransactionsBrazil" />
       <item itemvalue="Application.AverageTemperature" />
       <item itemvalue="Application.MaxMinMeanTransaction" />
@@ -167,9 +193,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.EntropyFASTA" />
+        <item itemvalue="Application.tde_1.Easy.Exercise4.TransactionsPerFlowAndYear" />
         <item itemvalue="Application.MaxMinMeanTransaction" />
         <item itemvalue="Application.AverageTemperature" />
-        <item itemvalue="Application.EntropyFASTA" />
       </list>
     </recent_temporary>
   </component>

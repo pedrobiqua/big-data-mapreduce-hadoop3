@@ -22,6 +22,7 @@ public class Exercise6 {
 
         // TODO: Fazer o segundo MapReduce Lembre: Usar o FASTA como exemplo.
         DirectoryManage.deleteResultFold();
+        DirectoryManage.deleteIntermedieteFold();
         BasicConfigurator.configure();
         Configuration c = new Configuration();
         String[] files = new GenericOptionsParser(c, args).getRemainingArgs();
@@ -47,18 +48,18 @@ public class Exercise6 {
         j.setOutputValueClass(Exercise6ValueWritable.class);
         // Definir arquivos de entrada e de saida
         FileInputFormat.addInputPath(j, input);
-        FileOutputFormat.setOutputPath(j, output);
+        FileOutputFormat.setOutputPath(j, intermediate);
         // rodar
         j.waitForCompletion(false);
 
         Job j2 = new Job(c, "entropia");
-        j2.setJarByClass(EntropyFASTA.class);
+        j2.setJarByClass(Exercise6.class);
         j2.setMapperClass(MapEtapaB.class);
         j2.setReducerClass(ReduceEtapaB.class);
         j2.setMapOutputKeyClass(Text.class);
-        j2.setMapOutputValueClass(BaseQtdWritable.class);
+        j2.setMapOutputValueClass(Exercise6EtapaBValueWritable.class);
         j2.setOutputKeyClass(Text.class);
-        j2.setOutputValueClass(DoubleWritable.class);
+        j2.setOutputValueClass(Text.class);
         FileInputFormat.addInputPath(j2, intermediate);
         FileOutputFormat.setOutputPath(j2, output);
         j2.waitForCompletion(false);
@@ -132,7 +133,7 @@ public class Exercise6 {
         }
     }
 
-    public static class MapEtapaB extends Mapper<LongWritable, Text, Text, BaseQtdWritable> {
+    public static class MapEtapaB extends Mapper<LongWritable, Text, Text, Exercise6EtapaBValueWritable> {
         public void map(LongWritable key, Text value, Context con)
                 throws IOException, InterruptedException {
             // Pegando uma linha
@@ -140,40 +141,28 @@ public class Exercise6 {
             String campos[] = linha.split("\t");
             String country = campos[0];
             float average = Float.parseFloat(campos[1]);
-            
-            for(Exercise6ValueWritable v:values){
-                
-            }
 
             Text chaveGenerica = new Text("maximo");
-
-            con.write(chaveGenerica, );
+            con.write(chaveGenerica, new Exercise6EtapaBValueWritable(average, country));
 
         }
     }
 
-    public static class ReduceEtapaB extends Reducer<Text, BaseQtdWritable, Text, DoubleWritable> {
-        public void reduce(Text key, Iterable<BaseQtdWritable> values, Context con)
+    public static class ReduceEtapaB extends Reducer<Text, Exercise6EtapaBValueWritable, Text, Text> {
+        public void reduce(Text key, Iterable<Exercise6EtapaBValueWritable> values, Context con)
                 throws IOException, InterruptedException {
 
-            double qtdTotal = 0.0;
-            ArrayList<BaseQtdWritable> listagem = new ArrayList<>();
-            for (BaseQtdWritable v : values) {
-                if (v.getCaracter().equals("total")) {
-                    qtdTotal = v.getContagem();
-                } else {
-                    listagem.add(
-                            new BaseQtdWritable(v.getCaracter(), v.getContagem()));
+            float max = 0.0f;
+            String country = "";
+            for(Exercise6EtapaBValueWritable o : values){
+                // Procura o valor maximo
+                if (o.getPriceComm() > max){
+                    max = o.getPriceComm();
+                    country = o.getCountry();
                 }
             }
-
-            // percorrer os caracteres e calcular as probabilidades e as entropias
-            for (BaseQtdWritable v : listagem) {
-                double prob = v.getContagem() / qtdTotal;
-                double entropia = -prob * (Math.log(prob) / Math.log(2.0));
-                con.write(new Text(v.getCaracter()), new DoubleWritable(entropia));
-            }
-
+            // passando para o reduce valores pre-somados
+            con.write(key, new Text(country));
         }
     }
 }
