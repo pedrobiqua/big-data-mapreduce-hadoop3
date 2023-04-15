@@ -105,7 +105,6 @@ public class Exercise7 {
         public void reduce(Exercise7KeyWritable key, Iterable<FloatWritable> values, Context con)
                 throws IOException, InterruptedException {
             float somaQtds = 0.0f;
-
             for (FloatWritable o : values) {
                 somaQtds += o.get();
             }
