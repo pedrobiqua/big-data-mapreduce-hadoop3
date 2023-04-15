@@ -57,7 +57,7 @@ public class Exercise7 {
 
             String keyString = key.toString();
 
-            if (keyString.equals("0")) {
+            if (!keyString.equals("0")) {
 
                 String year = colunas[1];
 
@@ -91,7 +91,6 @@ public class Exercise7 {
         public void reduce(Exercise7KeyWritable key, Iterable<FloatWritable> values, Context con)
                 throws IOException, InterruptedException {
             float somaQtds = 0.0f;
-
             for (FloatWritable o : values) {
                 somaQtds += o.get();
             }
