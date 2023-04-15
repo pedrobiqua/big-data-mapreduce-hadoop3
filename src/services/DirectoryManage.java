@@ -15,4 +15,12 @@ public class DirectoryManage {
             FileUtils.deleteDirectory(diretorio);
         }
     }
+
+    public static void deleteIntermedieteFold() throws IOException {
+        // Para não precisar ficar deletando o diretório em cada teste fiz essa pequena lógica
+        File diretorio = new File("../big-data-mapreduce-hadoop3-student-master/output/intermediate.tmp");
+        if(diretorio.exists()){
+            FileUtils.deleteDirectory(diretorio);
+        }
+    }
 }

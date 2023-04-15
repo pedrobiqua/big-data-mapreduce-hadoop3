@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f00a85ff-5af5-4dc2-aaf1-1f5a6dda5cfc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/DirectoryManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/DirectoryManage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
       <recent name="tde_1.Easy" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.EntropyFASTA">
+  <component name="RunManager" selected="Application.Exercise6">
     <configuration name="AverageTemperature" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="advanced.customwritable.AverageTemperature" />
       <module name="big-data-mapreduce-hadoop3-student" />
