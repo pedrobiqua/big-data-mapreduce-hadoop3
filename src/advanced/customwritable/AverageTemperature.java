@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class AverageTemperature {
     public static void main(String args[]) throws IOException, ClassNotFoundException, InterruptedException {
-        DirectoryManage.deleteResultFold();
+        // DirectoryManage.deleteResultFold();
         BasicConfigurator.configure();
         Configuration c = new Configuration();
         String[] files = new GenericOptionsParser(c, args).getRemainingArgs();

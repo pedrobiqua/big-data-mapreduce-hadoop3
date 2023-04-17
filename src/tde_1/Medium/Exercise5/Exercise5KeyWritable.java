@@ -6,15 +6,15 @@ import java.io.DataOutput;
 import java.io.IOException;
 import java.util.Objects;
 
-public class MaxMinMeanTransactionKeyWritable implements WritableComparable<MaxMinMeanTransactionKeyWritable> {
+public class Exercise5KeyWritable implements WritableComparable<Exercise5KeyWritable> {
 
     private String unityType;
     private String year;
 
-    public MaxMinMeanTransactionKeyWritable() {
+    public Exercise5KeyWritable() {
     }
 
-    public MaxMinMeanTransactionKeyWritable(String unityType, String year) {
+    public Exercise5KeyWritable(String unityType, String year) {
         this.unityType = unityType;
         this.year = year;
 
@@ -37,7 +37,7 @@ public class MaxMinMeanTransactionKeyWritable implements WritableComparable<MaxM
     }
 
     @Override
-    public int compareTo(MaxMinMeanTransactionKeyWritable o) {
+    public int compareTo(Exercise5KeyWritable o) {
         return Integer.compare(o.hashCode(), this.hashCode());
     }
 
@@ -59,7 +59,7 @@ public class MaxMinMeanTransactionKeyWritable implements WritableComparable<MaxM
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
-        MaxMinMeanTransactionKeyWritable that = (MaxMinMeanTransactionKeyWritable) o;
+        Exercise5KeyWritable that = (Exercise5KeyWritable) o;
         return Objects.equals(unityType, that.unityType) && Objects.equals(year, that.year);
     }
 

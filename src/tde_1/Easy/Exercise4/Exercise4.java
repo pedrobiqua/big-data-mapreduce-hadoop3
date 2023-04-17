@@ -3,7 +3,6 @@ package tde_1.Easy.Exercise4;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.FloatWritable;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -17,30 +16,32 @@ import services.DirectoryManage;
 
 import java.io.IOException;
 
-public class TransactionsPerFlowAndYear {
+public class Exercise4 {
     public static void main(String args[]) throws IOException, ClassNotFoundException, InterruptedException {
 
-        DirectoryManage.deleteResultFold();
+        // DirectoryManage.deleteResultFold();
         BasicConfigurator.configure();
         Configuration c = new Configuration();
         String[] files = new GenericOptionsParser(c, args).getRemainingArgs();
+        // Metodo estático que apaga a pasta result.
+        DirectoryManage.deleteResultFold(files[1]);
         // arquivo de entrada
-        Path input = new Path("in/transactions_amostra.csv");
+        Path input = new Path(files[0]);
         // arquivo de saida
-        Path output = new Path("output/result");
+        Path output = new Path(files[1]);
         // criacao do job e seu nome
         Job j = new Job(c, "transactionsPerFlowAndYear");
         // Registrar as classes
-        j.setJarByClass(TransactionsPerFlowAndYear.class);
-        j.setMapperClass(MapForTransactionsPerFlowAndYear.class);
-        j.setReducerClass(ReduceForCombineForMapForTransactionsPerFlowAndYear.class);
-        j.setCombinerClass(CombineForMapForTransactionsPerFlowAndYear.class);
+        j.setJarByClass(Exercise4.class);
+        j.setMapperClass(MapForExercise4.class);
+        j.setReducerClass(ReduceForExercise4.class);
+        j.setCombinerClass(CombineForExercise4.class);
         // Definir os tipos de saida
         // MAP
-        j.setMapOutputKeyClass(TransactionsFlowAndYearTempWritable.class);
-        j.setMapOutputValueClass(TransactionsFlowAndYearTempValueWritable.class);
+        j.setMapOutputKeyClass(Exercise4KeyWritable.class);
+        j.setMapOutputValueClass(Exercise4ValueWritable.class);
         // REDUCE
-        j.setOutputKeyClass(TransactionsFlowAndYearTempWritable.class);
+        j.setOutputKeyClass(Exercise4KeyWritable.class);
         j.setOutputValueClass(FloatWritable.class);
         // Definir arquivos de entrada e de saida
         FileInputFormat.addInputPath(j, input);
@@ -49,9 +50,9 @@ public class TransactionsPerFlowAndYear {
         j.waitForCompletion(false);
     }
 
-    public static class MapForTransactionsPerFlowAndYear
+    public static class MapForExercise4
             extends
-            Mapper<LongWritable, Text, TransactionsFlowAndYearTempWritable, TransactionsFlowAndYearTempValueWritable> {
+            Mapper<LongWritable, Text, Exercise4KeyWritable, Exercise4ValueWritable> {
         public void map(LongWritable key, Text value, Context con) throws IOException, InterruptedException {
 
             String linha = value.toString();
@@ -68,43 +69,43 @@ public class TransactionsPerFlowAndYear {
                 float priceComm = Float.parseFloat(colunas[5]);
                 int yearInt = Integer.parseInt(year);
                 if (country.equals("Brazil") && flow.equals("Export")) {
-                    con.write(new TransactionsFlowAndYearTempWritable(country, flow, yearInt, unitType, category),
-                            new TransactionsFlowAndYearTempValueWritable(priceComm, 1));
+                    con.write(new Exercise4KeyWritable(country, flow, yearInt, unitType, category),
+                            new Exercise4ValueWritable(priceComm, 1));
                 }
             }
         }
     }
 
-    public static class CombineForMapForTransactionsPerFlowAndYear extends
-            Reducer<TransactionsFlowAndYearTempWritable, TransactionsFlowAndYearTempValueWritable, TransactionsFlowAndYearTempWritable, TransactionsFlowAndYearTempValueWritable> {
-        public void reduce(TransactionsFlowAndYearTempWritable key,
-                Iterable<TransactionsFlowAndYearTempValueWritable> values, Context con)
+    public static class CombineForExercise4 extends
+            Reducer<Exercise4KeyWritable, Exercise4ValueWritable, Exercise4KeyWritable, Exercise4ValueWritable> {
+        public void reduce(Exercise4KeyWritable key,
+                           Iterable<Exercise4ValueWritable> values, Context con)
                 throws IOException, InterruptedException {
             int contagem = 0;
             float sum = 0.0f;
 
             // Varendo o values
-            for (TransactionsFlowAndYearTempValueWritable v : values) {
+            for (Exercise4ValueWritable v : values) {
                 contagem += v.getQntd();
                 sum += v.getPriceComm();
             }
             // salvando os resultados em disco
-            con.write(key, new TransactionsFlowAndYearTempValueWritable(sum, contagem));
+            con.write(key, new Exercise4ValueWritable(sum, contagem));
         }
     }
 
-    public static class ReduceForCombineForMapForTransactionsPerFlowAndYear
+    public static class ReduceForExercise4
             extends
-            Reducer<TransactionsFlowAndYearTempWritable, TransactionsFlowAndYearTempValueWritable, Text, FloatWritable> {
-        public void reduce(TransactionsFlowAndYearTempWritable key,
-                Iterable<TransactionsFlowAndYearTempValueWritable> values, Context con)
+            Reducer<Exercise4KeyWritable, Exercise4ValueWritable, Text, FloatWritable> {
+        public void reduce(Exercise4KeyWritable key,
+                           Iterable<Exercise4ValueWritable> values, Context con)
                 throws IOException, InterruptedException {
             int contagem = 0;
             float sum = 0.0f;
             float average = 0.0f;
             String result = key.getFlow() + " " + key.getYear() + " " + key.getUnitType() + " " + key.getCategory();
             // Varendo o values
-            for (TransactionsFlowAndYearTempValueWritable v : values) {
+            for (Exercise4ValueWritable v : values) {
                 contagem += v.getQntd();
                 sum += v.getPriceComm();
                 // salvando os resultados em disco

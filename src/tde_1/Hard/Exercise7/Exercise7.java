@@ -15,25 +15,21 @@ import org.apache.log4j.BasicConfigurator;
 import services.DirectoryManage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class Exercise7 {
     public static void main(String args[]) throws IOException, ClassNotFoundException, InterruptedException {
 
-        DirectoryManage.deleteResultFold();
-        DirectoryManage.deleteIntermedieteFold();
         BasicConfigurator.configure();
         Configuration c = new Configuration();
         String[] files = new GenericOptionsParser(c, args).getRemainingArgs();
+        DirectoryManage.deleteResultFold(files[2]);
+        DirectoryManage.deleteIntermedieteFold(files[1]);
         // arquivo de entrada
-        Path input = new Path("in/transactions_amostra.csv");
+        Path input = new Path(files[0]);
         // intermediate
-        Path intermediate = new Path("./output/intermediate.tmp");
+        Path intermediate = new Path(files[1]);
         // arquivo de saida
-        Path output = new Path("output/result");
+        Path output = new Path(files[2]);
         // criacao do job e seu nome
         Job j = new Job(c, "maxCommperFlowType");
         // Registrar as classes
@@ -54,7 +50,7 @@ public class Exercise7 {
         // rodar
         j.waitForCompletion(false);
 
-        Job j2 = new Job(c, "entropia");
+        Job j2 = new Job(c, "max");
         j2.setJarByClass(Exercise7.class);
         j2.setMapperClass(MapEtapaB.class);
         j2.setReducerClass(ReduceEtapaB.class);

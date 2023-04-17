@@ -5,20 +5,20 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.util.Objects;
-public class MaxMinMeanTransactionValueWritable implements WritableComparable<MaxMinMeanTransactionValueWritable> {
+public class Exercise5ValueWritable implements WritableComparable<Exercise5ValueWritable> {
     private float price;
     private int qtd;
     private float max;
     private float min;
 
-    public MaxMinMeanTransactionValueWritable(){}
+    public Exercise5ValueWritable(){}
 
-    public MaxMinMeanTransactionValueWritable(float price, int qtd) {
+    public Exercise5ValueWritable(float price, int qtd) {
         this.price = price;
         this.qtd = qtd;
     }
 
-    public MaxMinMeanTransactionValueWritable(float price, int qtd, float max, float min) {
+    public Exercise5ValueWritable(float price, int qtd, float max, float min) {
         this.price = price;
         this.qtd = qtd;
         this.max = max;
@@ -58,7 +58,7 @@ public class MaxMinMeanTransactionValueWritable implements WritableComparable<Ma
     }
 
     @Override
-    public int compareTo(MaxMinMeanTransactionValueWritable o) {
+    public int compareTo(Exercise5ValueWritable o) {
         return Integer.compare(o.hashCode(), this.hashCode());
     }
 
@@ -82,7 +82,7 @@ public class MaxMinMeanTransactionValueWritable implements WritableComparable<Ma
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MaxMinMeanTransactionValueWritable that = (MaxMinMeanTransactionValueWritable) o;
+        Exercise5ValueWritable that = (Exercise5ValueWritable) o;
         return Float.compare(that.price, price) == 0 && qtd == that.qtd && Float.compare(that.max, max) == 0 && Float.compare(that.min, min) == 0;
     }
 

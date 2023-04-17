@@ -5,16 +5,16 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.util.Objects;
-public class TransactionsAveragePerYearWritable
-        implements WritableComparable<TransactionsAveragePerYearWritable> {
+public class Exercise3ValueWritable
+        implements WritableComparable<Exercise3ValueWritable> {
     // Atributos privados
     private float commValue;
     private int year;
 
     // Construtor vazio
-    public TransactionsAveragePerYearWritable() {
+    public Exercise3ValueWritable() {
     }
-    public TransactionsAveragePerYearWritable(float commValue, int year) {
+    public Exercise3ValueWritable(float commValue, int year) {
         this.commValue = commValue;
         this.year = year;
     }
@@ -32,7 +32,7 @@ public class TransactionsAveragePerYearWritable
         this.year = year;
     }
     @Override
-    public int compareTo(TransactionsAveragePerYearWritable o) {
+    public int compareTo(Exercise3ValueWritable o) {
         // manter essa implemementacao independentemente da classe e dos atributos
         return Integer.compare(o.hashCode(), this.hashCode());
     }
@@ -53,7 +53,7 @@ public class TransactionsAveragePerYearWritable
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TransactionsAveragePerYearWritable that = (TransactionsAveragePerYearWritable) o;
+        Exercise3ValueWritable that = (Exercise3ValueWritable) o;
         return Float.compare(that.commValue, commValue) == 0 && year == that.year;
     }
 

@@ -7,8 +7,8 @@ import java.io.DataOutput;
 import java.io.IOException;
 import java.util.Objects;
 
-public class TransactionsFlowAndYearTempWritable
-        implements WritableComparable<TransactionsFlowAndYearTempWritable> {
+public class Exercise4KeyWritable
+        implements WritableComparable<Exercise4KeyWritable> {
     // Atributos privados
     private String flow;
     private int year;
@@ -17,11 +17,11 @@ public class TransactionsFlowAndYearTempWritable
     private String country;
 
     // Construtor vazio
-    public TransactionsFlowAndYearTempWritable() {
+    public Exercise4KeyWritable() {
     }
 
-    public TransactionsFlowAndYearTempWritable(String country, String flow, int year, String unitType,
-            String category) {
+    public Exercise4KeyWritable(String country, String flow, int year, String unitType,
+                                String category) {
         this.country = country;
         this.flow = flow;
         this.year = year;
@@ -72,7 +72,7 @@ public class TransactionsFlowAndYearTempWritable
     }
 
     @Override
-    public int compareTo(TransactionsFlowAndYearTempWritable o) {
+    public int compareTo(Exercise4KeyWritable o) {
         // manter essa implemementacao independentemente da classe e dos atributos
         return Integer.compare(o.hashCode(), this.hashCode());
     }
@@ -104,7 +104,7 @@ public class TransactionsFlowAndYearTempWritable
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
-        TransactionsFlowAndYearTempWritable that = (TransactionsFlowAndYearTempWritable) o;
+        Exercise4KeyWritable that = (Exercise4KeyWritable) o;
         return year == that.year && Objects.equals(flow, that.flow);
     }
 

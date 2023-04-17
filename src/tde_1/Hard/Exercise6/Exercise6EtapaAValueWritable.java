@@ -6,21 +6,21 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.util.Objects;
-public class Exercise6ValueWritable implements WritableComparable<Exercise6ValueWritable> {
+public class Exercise6EtapaAValueWritable implements WritableComparable<Exercise6EtapaAValueWritable> {
 
     private float priceComm;
     private int qtd;
 
     private float max;
 
-    public Exercise6ValueWritable() {}
+    public Exercise6EtapaAValueWritable() {}
 
-    public Exercise6ValueWritable(float priceComm, int qtd) {
+    public Exercise6EtapaAValueWritable(float priceComm, int qtd) {
         this.priceComm = priceComm;
         this.qtd = qtd;
     }
 
-    public Exercise6ValueWritable(float priceComm, int qtd, float max) {
+    public Exercise6EtapaAValueWritable(float priceComm, int qtd, float max) {
         this.priceComm = priceComm;
         this.qtd = qtd;
         this.max = max;
@@ -51,7 +51,7 @@ public class Exercise6ValueWritable implements WritableComparable<Exercise6Value
     }
 
     @Override
-    public int compareTo(Exercise6ValueWritable o) {
+    public int compareTo(Exercise6EtapaAValueWritable o) {
         return Integer.compare(o.hashCode(), this.hashCode());
     }
 
@@ -73,7 +73,7 @@ public class Exercise6ValueWritable implements WritableComparable<Exercise6Value
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Exercise6ValueWritable that = (Exercise6ValueWritable) o;
+        Exercise6EtapaAValueWritable that = (Exercise6EtapaAValueWritable) o;
         return Float.compare(that.priceComm, priceComm) == 0 && qtd == that.qtd && Float.compare(that.max, max) == 0;
     }
 

@@ -2,7 +2,6 @@ package tde_1.Medium.Exercise5;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.FloatWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -16,13 +15,14 @@ import services.DirectoryManage;
 
 import java.io.IOException;
 
-public class MaxMinMeanTransaction {
+public class Exercise5 {
     public static void main(String args[]) throws IOException, ClassNotFoundException, InterruptedException {
 
-        DirectoryManage.deleteResultFold();
         BasicConfigurator.configure();
         Configuration c = new Configuration();
         String[] files = new GenericOptionsParser(c, args).getRemainingArgs();
+        // Metodo estático que apaga a pasta result.
+        DirectoryManage.deleteResultFold(files[1]);
         // arquivo de entrada
         Path input = new Path(files[0]);
         // arquivo de saida
@@ -30,14 +30,14 @@ public class MaxMinMeanTransaction {
         // criacao do job e seu nome
         Job j = new Job(c, "maxMinMean");
         // Registrar as classes
-        j.setJarByClass(MaxMinMeanTransaction.class);
-        j.setMapperClass(MapForTransactionsPerFlowAndYear.class);
-        j.setReducerClass(ReduceForCombineForMapForTransactionsPerFlowAndYear.class);
-        j.setCombinerClass(CombineForMapForTransactionsPerFlowAndYear.class);
+        j.setJarByClass(Exercise5.class);
+        j.setMapperClass(MapForExercise5.class);
+        j.setReducerClass(ReduceForExercise5.class);
+        j.setCombinerClass(CombineForExercise5.class);
         // Definir os tipos de saida
         // MAP
-        j.setMapOutputKeyClass(MaxMinMeanTransactionKeyWritable.class);
-        j.setMapOutputValueClass(MaxMinMeanTransactionValueWritable.class);
+        j.setMapOutputKeyClass(Exercise5KeyWritable.class);
+        j.setMapOutputValueClass(Exercise5ValueWritable.class);
         // REDUCE
         j.setOutputKeyClass(Text.class);
         j.setOutputValueClass(Text.class);
@@ -47,8 +47,8 @@ public class MaxMinMeanTransaction {
         // rodar
         j.waitForCompletion(false);
     }
-    public static class MapForTransactionsPerFlowAndYear extends Mapper<LongWritable, Text,
-            MaxMinMeanTransactionKeyWritable, MaxMinMeanTransactionValueWritable> {
+    public static class MapForExercise5 extends Mapper<LongWritable, Text,
+            Exercise5KeyWritable, Exercise5ValueWritable> {
         public void map(LongWritable key, Text value, Context con) throws IOException, InterruptedException {
 
             String linha = value.toString();
@@ -63,19 +63,19 @@ public class MaxMinMeanTransaction {
                 float priceFloat = Float.parseFloat(price);
                 // float quantidade = Float.parseFloat(colunas[8]);
                 // float priceByUnit = priceFloat/quantidade;
-                con.write(new MaxMinMeanTransactionKeyWritable(unityType, year), new MaxMinMeanTransactionValueWritable(priceFloat, 1));
+                con.write(new Exercise5KeyWritable(unityType, year), new Exercise5ValueWritable(priceFloat, 1));
             }
         }
     }
-    public static class CombineForMapForTransactionsPerFlowAndYear extends Reducer<MaxMinMeanTransactionKeyWritable, MaxMinMeanTransactionValueWritable,
-            MaxMinMeanTransactionKeyWritable, MaxMinMeanTransactionValueWritable>{
-        public void reduce(MaxMinMeanTransactionKeyWritable key, Iterable<MaxMinMeanTransactionValueWritable> values, Context con)
+    public static class CombineForExercise5 extends Reducer<Exercise5KeyWritable, Exercise5ValueWritable,
+            Exercise5KeyWritable, Exercise5ValueWritable>{
+        public void reduce(Exercise5KeyWritable key, Iterable<Exercise5ValueWritable> values, Context con)
                 throws IOException, InterruptedException {
             float max = 0.0f;
             float min = 0.0f;
             float somaPrice = 0;
             int somaQtds = 0;
-            for(MaxMinMeanTransactionValueWritable o : values){
+            for(Exercise5ValueWritable o : values){
                 somaPrice += o.getPrice();
                 somaQtds += o.getQtd();
                 // Procura o valor maximo
@@ -89,19 +89,19 @@ public class MaxMinMeanTransaction {
                 }
             }
             // passando para o reduce valores pre-somados
-            con.write(key, new MaxMinMeanTransactionValueWritable(somaPrice, somaQtds, max, min));
+            con.write(key, new Exercise5ValueWritable(somaPrice, somaQtds, max, min));
         }
     }
-    public static class ReduceForCombineForMapForTransactionsPerFlowAndYear extends Reducer<MaxMinMeanTransactionKeyWritable, MaxMinMeanTransactionValueWritable,
+    public static class ReduceForExercise5 extends Reducer<Exercise5KeyWritable, Exercise5ValueWritable,
             Text, Text> {
-        public void reduce(MaxMinMeanTransactionKeyWritable key, Iterable<MaxMinMeanTransactionValueWritable> values, Context con)
+        public void reduce(Exercise5KeyWritable key, Iterable<Exercise5ValueWritable> values, Context con)
                 throws IOException, InterruptedException {
 
             float max = 0.0f;
             float min = 0.0f;
             float somaCommValues = 0;
             int somaQtds = 0;
-            for (MaxMinMeanTransactionValueWritable o : values){
+            for (Exercise5ValueWritable o : values){
                 somaCommValues += o.getPrice();
                 somaQtds += o.getQtd();
 
@@ -119,7 +119,7 @@ public class MaxMinMeanTransaction {
             float media = somaCommValues / somaQtds;
             
             // salvando o resultado
-            con.write(new Text(key.getUnityType() + " " + key.getYear()), new Text(media + " " + max + " " + min));
+            con.write(new Text(key.getUnityType() + " " + key.getYear()), new Text("| média: " + media + " | max: " + max + " | min: " + min + " |"));
         }
     }
 }

@@ -7,17 +7,17 @@ import java.io.DataOutput;
 import java.io.IOException;
 import java.util.Objects;
 
-public class TransactionsFlowAndYearTempValueWritable
-        implements WritableComparable<TransactionsFlowAndYearTempValueWritable> {
+public class Exercise4ValueWritable
+        implements WritableComparable<Exercise4ValueWritable> {
     // Atributos privados
     private float priceComm;
     private int qntd;
 
     // Construtor vazio
-    public TransactionsFlowAndYearTempValueWritable() {
+    public Exercise4ValueWritable() {
     }
 
-    public TransactionsFlowAndYearTempValueWritable(float priceComm, int qntd) {
+    public Exercise4ValueWritable(float priceComm, int qntd) {
         this.priceComm = priceComm;
         this.qntd = qntd;
     }
@@ -41,7 +41,7 @@ public class TransactionsFlowAndYearTempValueWritable
     }
 
     @Override
-    public int compareTo(TransactionsFlowAndYearTempValueWritable o) {
+    public int compareTo(Exercise4ValueWritable o) {
         // manter essa implemementacao independentemente da classe e dos atributos
         return Integer.compare(o.hashCode(), this.hashCode());
     }
@@ -63,19 +63,14 @@ public class TransactionsFlowAndYearTempValueWritable
 
     @Override
     public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof TransactionsFlowAndYearTempValueWritable)) {
-            return false;
-        }
-        TransactionsFlowAndYearTempValueWritable transactionsFlowAndYearTempValueWritable = (TransactionsFlowAndYearTempValueWritable) o;
-        return priceComm == transactionsFlowAndYearTempValueWritable.priceComm
-                && qntd == transactionsFlowAndYearTempValueWritable.qntd;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Exercise4ValueWritable that = (Exercise4ValueWritable) o;
+        return Float.compare(that.priceComm, priceComm) == 0 && qntd == that.qntd;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(priceComm, qntd);
     }
-
 }

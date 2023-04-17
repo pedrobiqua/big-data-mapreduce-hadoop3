@@ -6,13 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="f00a85ff-5af5-4dc2-aaf1-1f5a6dda5cfc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/in/.~lock.transactions_amostra.csv#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/TransactionsAveragePerYear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/TransactionsAveragePerYear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/advanced/customwritable/AverageTemperature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/advanced/customwritable/AverageTemperature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/DirectoryManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/DirectoryManage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise1/TransactionsBrazil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise1/Exercise1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise2/TransactionsFlowAndYearTempWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise2/Exercise2KeyWritable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise2/TransactionsPerFlowAndYear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise2/Exercise2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/TransactionsAveragePerYear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/Exercise3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/TransactionsAveragePerYearWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/Exercise3ValueWritable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/TransactionsFlowAndYearTempValueWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/Exercise4ValueWritable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/TransactionsFlowAndYearTempWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/Exercise4KeyWritable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/TransactionsPerFlowAndYear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/Exercise4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6KeyWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6EtapaAKeyWritable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6ValueWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6EtapaAValueWritable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise7/Exercise7.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise7/Exercise7.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise7/Exercise7EtabaBKeyWritable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise7/Exercise7EtabaBValueWritable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise7/Exercise7KeyWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise7/Exercise7KeyWritable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise7/Exercise7ValueWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise7/Exercise7ValueWritable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/MaxMinMeanTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/Exercise5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/MaxMinMeanTransactionKeyWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/Exercise5KeyWritable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/MaxMinMeanTransactionValueWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/Exercise5ValueWritable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,16 +64,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/pedro/Downloads/big-data-mapreduce-hadoop3-student-master/src/tde_1/Hard/Exercise7&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/pedro/Downloads/big-data-mapreduce-hadoop3-student-master/src/tde_1/Hard/Exercise7",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/tde_1/Hard/Exercise7" />
@@ -76,14 +87,14 @@
       <recent name="tde_1.Easy" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Exercise7 (1)">
-    <configuration name="EntropyFASTA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="advanced.entropy.EntropyFASTA" />
+  <component name="RunManager" selected="Application.Exercise7">
+    <configuration name="Exercise1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Easy.Exercise1.Exercise1" />
       <module name="big-data-mapreduce-hadoop3-student" />
-      <option name="PROGRAM_PARAMETERS" value="in/JY157487.1.fasta output/result" />
+      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/Ex1/result" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="advanced.entropy.*" />
+          <option name="PATTERN" value="tde_1.Easy.Exercise1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -91,77 +102,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Exercise6" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tde_1.Hard.Exercise6.Exercise6" />
+    <configuration name="Exercise2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Easy.Exercise2.Exercise2" />
       <module name="big-data-mapreduce-hadoop3-student" />
-      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/result" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tde_1.Hard.Exercise6.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Exercise7 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tde_1.Hard.Exercise7.Exercise7" />
-      <module name="big-data-mapreduce-hadoop3-student" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tde_1.Hard.Exercise7.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Exercise7" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tde_1.Hard.Exercise7.Exercise7" />
-      <module name="big-data-mapreduce-hadoop3-student" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tde_1.Hard.Exercise7.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TransactionsAveragePerYear (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tde_1.Easy.Exercise3.TransactionsAveragePerYear" />
-      <module name="big-data-mapreduce-hadoop3-student" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tde_1.Easy.Exercise3.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TransactionsAveragePerYear" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tde_1.Easy.Exercise3.TransactionsAveragePerYear" />
-      <module name="big-data-mapreduce-hadoop3-student" />
-      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/result" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tde_1.Easy.Exercise3.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TransactionsPerFlowAndYear" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tde_1.Easy.Exercise2.TransactionsPerFlowAndYear" />
-      <module name="big-data-mapreduce-hadoop3-student" />
-      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/result" />
+      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/Ex2/result" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="tde_1.Easy.Exercise2.*" />
@@ -172,9 +116,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="tde_1.Easy.Exercise4.TransactionsPerFlowAndYear" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tde_1.Easy.Exercise4.TransactionsPerFlowAndYear" />
+    <configuration name="Exercise3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Easy.Exercise3.Exercise3" />
       <module name="big-data-mapreduce-hadoop3-student" />
+      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/Ex3/result" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tde_1.Easy.Exercise3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Exercise3" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Easy.Exercise3.Exercise3" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/result" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tde_1.Easy.Exercise3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Exercise4" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Easy.Exercise4.Exercise4" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/Ex4/result" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="tde_1.Easy.Exercise4.*" />
@@ -185,23 +158,78 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Exercise5 " type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Medium.Exercise5.Exercise5" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/Ex5/result" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tde_1.Medium.Exercise5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Exercise5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Medium.Exercise5.Exercise5" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/result" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tde_1.Medium.Exercise5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Exercise6" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Hard.Exercise6.Exercise6" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/Ex6/intermediate.tmp output/Ex6/result" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tde_1.Hard.Exercise6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Exercise7" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tde_1.Hard.Exercise7.Exercise7" />
+      <module name="big-data-mapreduce-hadoop3-student" />
+      <option name="PROGRAM_PARAMETERS" value="in/transactions_amostra.csv output/Ex7/intermediate.tmp output/Ex7/result" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tde_1.Hard.Exercise7.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.Exercise2" />
+      <item itemvalue="Application.Exercise4" />
+      <item itemvalue="Application.Exercise5 " />
       <item itemvalue="Application.Exercise6" />
-      <item itemvalue="Application.TransactionsAveragePerYear" />
-      <item itemvalue="Application.TransactionsPerFlowAndYear" />
+      <item itemvalue="Application.Exercise1" />
+      <item itemvalue="Application.Exercise3" />
+      <item itemvalue="Application.Exercise5" />
       <item itemvalue="Application.Exercise7" />
-      <item itemvalue="Application.Exercise7 (1)" />
-      <item itemvalue="Application.TransactionsAveragePerYear (1)" />
-      <item itemvalue="Application.tde_1.Easy.Exercise4.TransactionsPerFlowAndYear" />
-      <item itemvalue="Application.EntropyFASTA" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Exercise7 (1)" />
-        <item itemvalue="Application.TransactionsAveragePerYear (1)" />
         <item itemvalue="Application.Exercise7" />
-        <item itemvalue="Application.EntropyFASTA" />
-        <item itemvalue="Application.tde_1.Easy.Exercise4.TransactionsPerFlowAndYear" />
+        <item itemvalue="Application.Exercise3" />
+        <item itemvalue="Application.Exercise1" />
+        <item itemvalue="Application.Exercise5" />
       </list>
     </recent_temporary>
   </component>
