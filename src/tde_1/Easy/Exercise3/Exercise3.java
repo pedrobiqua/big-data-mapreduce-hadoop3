@@ -61,7 +61,7 @@ public class Exercise3 {
                 float commValue = Float.parseFloat(colunas[5]);
                 String year = colunas[1];
                 int yearInt = Integer.parseInt(year);
-                con.write(new Text("media"), new Exercise3ValueWritable(commValue, 1));
+                con.write(new Text("Média total:"), new Exercise3ValueWritable(commValue, 1));
                 con.write(new Text(year), new Exercise3ValueWritable(commValue, 1));
             }
         }

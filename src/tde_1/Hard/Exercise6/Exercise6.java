@@ -23,8 +23,8 @@ public class Exercise6 {
         Configuration c = new Configuration();
         String[] files = new GenericOptionsParser(c, args).getRemainingArgs();
         // Metodo estático que apaga a pasta result.
-        DirectoryManage.deleteResultFold(files[2]);
-        DirectoryManage.deleteIntermedieteFold(files[1]);
+        // DirectoryManage.deleteResultFold(files[2]);
+        // DirectoryManage.deleteIntermedieteFold(files[1]);
         // arquivo de entrada
         Path input = new Path(files[0]);
         // intermediate
@@ -160,7 +160,8 @@ public class Exercise6 {
                     country = o.getCountry();
                 }
             }
-            // passando para o reduce valores pre-somados
+            // Limpando a chave apenas para mostrar no arquivo part-r-00000
+            key.set("");
             con.write(key, new Text(country));
         }
     }

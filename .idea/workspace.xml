@@ -6,23 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f00a85ff-5af5-4dc2-aaf1-1f5a6dda5cfc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/advanced/customwritable/AverageTemperature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/advanced/customwritable/AverageTemperature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/DirectoryManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/DirectoryManage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise1/TransactionsBrazil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise1/Exercise1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise2/TransactionsFlowAndYearTempWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise2/Exercise2KeyWritable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise2/TransactionsPerFlowAndYear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise2/Exercise2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/TransactionsAveragePerYear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/Exercise3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/TransactionsAveragePerYearWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/Exercise3ValueWritable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/TransactionsFlowAndYearTempValueWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/Exercise4ValueWritable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/TransactionsFlowAndYearTempWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/Exercise4KeyWritable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/TransactionsPerFlowAndYear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/Exercise4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/Exercise3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/Exercise3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/Exercise4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/Exercise4.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6KeyWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6EtapaAKeyWritable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6ValueWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6EtapaAValueWritable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise7/Exercise7.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise7/Exercise7.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/MaxMinMeanTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/Exercise5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/MaxMinMeanTransactionKeyWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/Exercise5KeyWritable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/MaxMinMeanTransactionValueWritable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Medium/Exercise5/Exercise5ValueWritable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +73,7 @@
       <recent name="tde_1.Easy" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Exercise7">
+  <component name="RunManager" selected="Application.Exercise6">
     <configuration name="Exercise1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tde_1.Easy.Exercise1.Exercise1" />
       <module name="big-data-mapreduce-hadoop3-student" />

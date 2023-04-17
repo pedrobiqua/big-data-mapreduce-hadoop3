@@ -103,7 +103,7 @@ public class Exercise4 {
             int contagem = 0;
             float sum = 0.0f;
             float average = 0.0f;
-            String result = key.getFlow() + " " + key.getYear() + " " + key.getUnitType() + " " + key.getCategory();
+            String result = key.getCountry() + " " + key.getFlow() + " | " + key.getYear() + " " + key.getUnitType() + " " + key.getCategory() + " | Média : ";
             // Varendo o values
             for (Exercise4ValueWritable v : values) {
                 contagem += v.getQntd();
