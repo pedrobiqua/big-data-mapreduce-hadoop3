@@ -7,17 +7,17 @@ O Hadoop é amplamente utilizado em organizações de todos os tamanhos e setore
 
 ## Estudantes
 Pedro Bianchini de Quadros
-```
-https://github.com/pedrobiqua
-```
+
+- [@pedrobiqua](https://github.com/pedrobiqua)
+
 Thiago Krügel
-```
-https://github.com/thiagokrugel
-```
+
+- [@thiagokrugel](https://github.com/thiagokrugel)
+
+
 Gabriel Antonio Gomes de Farias
-```
-https://github.com/gabz11
-```
+
+- [@gabz11](https://github.com/gabz11)
 
 ### Objetivo do Repositório
 O objetivo desse repositório é adicionar os exercicios feitos para o TDE_1 da matéria de Big Data e para os estudantes adicionarem os seus commits
