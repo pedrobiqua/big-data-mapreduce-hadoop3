@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f00a85ff-5af5-4dc2-aaf1-1f5a6dda5cfc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/Exercise3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise3/Exercise3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/Exercise4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Easy/Exercise4/Exercise4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tde_1/Hard/Exercise6/Exercise6.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -52,6 +51,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "/home/pedro/Downloads/big-data-mapreduce-hadoop3-student-master/src/tde_1/Hard/Exercise7",
